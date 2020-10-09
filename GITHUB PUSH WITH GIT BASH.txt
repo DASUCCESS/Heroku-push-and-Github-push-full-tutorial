@@ -1,0 +1,29 @@
+FOLLOW THIS STEP TO SUCCESSFULLY PUSH TO GITHUB FROM YOUR GIT BASH TERMINAL
+
+- Create a GITHUB ACCOUNT
+- Create a new repository ON Github
+- Open your Git Bash terminal
+- Create your new project in your desktop .
+- Right click on the folder you created on the desktop for the new project, then click on Git Bash here,
+this will automatically set the directory to your working folder
+- Follow this command as follows
+
+Add the file to the new local repository.
+
+	-Use ( git add . ) in your bash to add all the files to the given folder.
+	-Use ( git status ) in your bash to view all the files which are going to be staged to the first commit.
+	-Commit the files staged in your local repository by writing a commit message.
+	-You can create a commit message by ( git commit -m 'your message')
+	-Copy your remote repository's URL from GitHub and type this. ( git remote add origin 'your_url_name' )
+ 	- Push the code in your local repository to GitHub
+	(git push -u origin master) is used for pushing local content to GitHub.
+    	FINALLY YOU ARE DONE View your files in your repository hosted on GitHub.
+Start running this command
+	git init
+	git add .
+	git status
+ 	git commit -m 'your message'
+	git remote add origin 'your_url_name'
+	git push -u origin master
+
+Follow this and you are done.

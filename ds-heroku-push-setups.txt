@@ -1,0 +1,62 @@
+SET UP YOUR HEROKU SERVER
+- go to gitbash
+- type this
+	touch procfile : 
+This will create a procfile at the end of manage.py file, check it - open it and type this
+	web: gunicorn mywebsite.wsgi   (mywebsite is the name of your app)
+Then pip install alot of things like
+	pip install gunicorn
+	pip install django_heroku
+	pip install python-decouple
+	pip install dj_database_url
+then create a requirement file
+	pip freeze > requirement.txt
+go to you code and see check the requirement txt all the stuffs you installed will be there
+- GO TO SETTINGS.PY TO UPDATE HEROKU AND TYPE THIS
+	import django_heroku
+	import dj_database_url
+	from decouple import config
+- GO TO MIDDLEWARE AND TYPE THIS
+	'whitenoise.middleware.WhiteNoiseMiddleware',
+-  GO TO BOTTOM AND TYPE THIS
+	STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+	django_heroku.settings(locals())
+
+Register on heroku.com and install this with heroku toolbelt (go to this link https://devcenter.heroku.com/articles/heroku-cli) 
+and install it then register on heroku if you have not register before.
+
+- NOW ALL YOU NEED TO DO IS SET UP YOUR GIT VERSION CONTROL USING THIS COMMAND BELOW
+	$ git config --global user.name "Your Name"
+	$ git config --global user.email "you@youremailaddress.com"
+	$ git config --global push.default matching
+	$ git config --global alias.co checkout
+	$ git init
+	git add . (To save your project)
+	git commit -am 'initial commit'  ( The string means you wanna comment what you just did )
+- NOW CREATE SSH KEY TO CONNECT HEROKU, TYPE THIS
+	mkdir ~/ssh (Note: you wanna do this in your directory to create the ssh , though it will be 
+		     invisible, the next step is cd to that ssh directory you just creted)
+	cd ~/ssh
+	ssh-keygen.exe (Once you type this , it will tell heyou to input your passwod and all that, just press 'ENTER' and go to the next step)
+- DONE IT HAS BEEN CREATED ,NOW CD BACK TO YOUR ORIGINAL DIRECTORY FOR YOUR PROJECT
+	cd /c/1stfoldername/2ndfoldername then hit "ENTER"
+- GO TO HEROKU.COM TO LOG IN YOUR ACCOUNT, YOU CAN NOW TYPE THIS (Main reason for this is if you have not register yet)
+    -Make sure you cd to your virtual directory correctly-
+	heroku login
+- NOW ADD YOUR SSH KEY TO HEROKU
+	heroku keys:add
+	now press 'YES' for the prompt it will bring
+BREAK UP FROM YOUR COMMAND &
+- NOW CREATE APP ON HEROKU, TYPE THIS
+	heroku create 
+- AFTER YOU HAVE CRETED YOUR APP (now copy the url of your app and boom you are live but your project is not yet live)
+- NOW PUSH YOUR CODE TO HEROKU AND TYPE THIS 
+	git push heroku master
+NOTE: You might get an error due to your static files , just copy the command provided from the error and paste it on your command and then push again
+	git push heroku master
+
+NOW YOU ARE DONE 100%
+- TO CHANGE THE NAME OF YOUR DOMAIN PROVIDED DEFAULTLY, TYPE THIS
+	heroku rename thenameofyourproject   (input the name of your project and hit enter)
+
+masterbranch a78ec2a
